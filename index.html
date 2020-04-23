@@ -3,6 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script>
+            $(function() {
+                var pull 		= $('#pull');
+                    menu 		= $('.menu ul');
+                    menuHeight	= menu.height();
+
+                $(pull).on('click', function(e) {
+                    e.preventDefault();
+                    menu.slideToggle();
+                });
+
+                $(window).resize(function(){
+                    var w = $(window).width();
+                    if(w > 320 && menu.is(':hidden')) {
+                        menu.removeAttr('style');
+                    }
+                });
+            });
+        </script>
     <link rel="stylesheet" href="./style.css">
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
     <title>Creative</title>
@@ -24,7 +44,7 @@
                             <li>
                                 <a href="#">design</a>
                             </li>
-                            <li>
+                            <li class="active">
                                 <a href="#">web design</a>
                             </li>
                             <li>
@@ -34,6 +54,7 @@
                                 <a href="#">cotnact</a>
                             </li>
                         </ul>
+                        <a href="#" id="pull">Menu</a>
                     </div>
                 </div>
             </div>
